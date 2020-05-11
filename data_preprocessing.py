@@ -33,7 +33,7 @@ LABEL.build_vocab(train_data)
 
 def get_imdb_data_iterators(device, batch_size=64):
     # 创建iterators，每个iteration都会返回一个batch的examples
-    # BucketIterator会把长度差不多的句子放到同一个batch中，确保每个batch中不出现太多的padding
+    # BucketIterator会把长度差不多的句子放到同一个batch中，使得每个batch中不出现太多的padding
     train_iterator, valid_iterator, test_iterator = data.BucketIterator.splits(
         (train_data, valid_data, test_data),
         batch_size=batch_size,
